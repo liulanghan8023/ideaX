@@ -1,0 +1,79 @@
+<idea-plugin url="https://www.jetbrains.com/idea">
+    <id>com.tramp.idea.plugin</id>
+    <name>ideaX</name>
+    <version>1.0.0</version>
+    <vendor email="778551022@qq.com" url="">tramp</vendor>
+
+    <description><![CDATA[
+        旨在开发通用的，提高开发效率的插件，你有想要的功能可以联系我,公众号:bug爱好者，欢迎关注
+        ]]></description>
+
+    <change-notes><![CDATA[
+        <br/><em>2017-12-19</em><br/>
+        <em>mapper接口和xml直接快速切换</em><br/>
+        <em>xml中快速定位到实体类属性</em><br/>
+        <em>xml中 if标签,#{},${}参数智能提示</em><br/>
+        <em>test方法快速创建等</em><br/>
+        <br/><em>2019-01-08</em><br/>
+        <em>java文件中,字符串如:user.name.error,则alt+enter可在名字以user开头的properties文件中添加user.name.error属性</em><br/>
+        ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="192.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+    <depends>com.intellij.spring</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- 设置 -->
+        <applicationConfigurable instance="com.tramp.idea.form.GeneratorSetting"/>
+        <applicationService serviceInterface="com.tramp.idea.form.Setting" serviceImplementation="com.tramp.idea.form.Setting"/>
+
+        <defaultLiveTemplatesProvider implementation="com.tramp.idea.provider.LiveTemplateProvider"/>
+        <liveTemplateContext implementation="com.tramp.idea.livetemplate.TrampContext"/>
+
+        <projectService serviceImplementation="com.tramp.idea.service.JavaService"/>
+        <projectService serviceImplementation="com.tramp.idea.service.EditorService"/>
+        <projectService serviceImplementation="com.tramp.idea.dom.alias.AliasFacade"/>
+        <projectService serviceImplementation="com.tramp.idea.service.AnnotationService"/>
+
+        <applicationService serviceInterface="com.tramp.idea.setting.MybatisSetting"
+                            serviceImplementation="com.tramp.idea.setting.MybatisSetting"/>
+
+        <dom.fileDescription implementation="com.tramp.idea.dom.description.MapperDescription"/>
+        <codeInsight.lineMarkerProvider language="JAVA"
+                                        implementationClass="com.tramp.idea.provider.MapperLineMarkerProvider"/>
+        <codeInsight.lineMarkerProvider language="XML"
+                                        implementationClass="com.tramp.idea.provider.StatementLineMarkerProvider"/>
+        <codeInsight.lineMarkerProvider language="JAVA"
+                                        implementationClass="com.tramp.idea.provider.InjectionLineMarkerProvider"/>
+
+        <completion.contributor language="XML" implementationClass="com.tramp.idea.contributor.TestParamContributor"/>
+        <!-- sql字段提示 -->
+        <completion.contributor language="SQL"
+                                implementationClass="com.tramp.idea.contributor.SqlParamCompletionContributor"/>
+
+        <intentionAction>
+            <className>com.tramp.idea.intention.GenerateParamAnnotationIntention</className>
+        </intentionAction>
+        <intentionAction>
+            <className>com.tramp.idea.intention.GenerateStatementIntention</className>
+        </intentionAction>
+        <intentionAction order="first">
+            <className>com.tramp.idea.intention.GenerateMapperIntention</className>
+        </intentionAction>
+        <intentionAction order="first">
+            <className>com.tramp.idea.intention.GeneratePropertiesIntention</className>
+        </intentionAction>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+
+</idea-plugin>
