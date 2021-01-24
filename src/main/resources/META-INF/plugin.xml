@@ -5,18 +5,23 @@
     <vendor email="778551022@qq.com" url="">tramp</vendor>
 
     <description><![CDATA[
-        旨在开发通用的，提高开发效率的插件，你有想要的功能可以联系我,公众号:bug爱好者，欢迎关注
-        ]]></description>
+          ideaX plugin Features:
+       <ul>
+          <li>mapper and xml can jump back and forth</li>
+          <li>mybatis.xml,mapper.xml prompt</li>
+          <li>the tag of 'if' in mybatis.xml, #{}, ${} parameter intelligent prompt in XML</li>
+          <li>Test method to quickly create</li>
+      </ul>
+         旨在开发通用的，提高开发效率的插件,公众号:bug爱好者
+      ]]></description>
 
     <change-notes><![CDATA[
-        <br/><em>2017-12-19</em><br/>
-        <em>mapper接口和xml直接快速切换</em><br/>
-        <em>xml中快速定位到实体类属性</em><br/>
-        <em>xml中 if标签,#{},${}参数智能提示</em><br/>
-        <em>test方法快速创建等</em><br/>
-        <br/><em>2019-01-08</em><br/>
-        <em>java文件中,字符串如:user.name.error,则alt+enter可在名字以user开头的properties文件中添加user.name.error属性</em><br/>
-        ]]>
+      <h4>2021.01.24</h4>
+      <ul>
+          <li>ideaX-1.0.0</li>
+      </ul>
+      ]]>
+<!--        <em>java文件中,字符串如:user.name.error,则alt+enter可在名字以user开头的properties文件中添加user.name.error属性</em><br/>-->
     </change-notes>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->

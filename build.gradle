@@ -19,8 +19,8 @@ plugins {
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group 'com.tramp.idea.plugin'
+version '1.0.0'
 
 repositories {
     jcenter()
@@ -40,15 +40,19 @@ intellij {
     version '2019.2'
     type 'IU' // 企业版
     plugins = ['java', 'Spring']
-    pluginName 'ideaPluginDemo'
+    pluginName 'ideaX'
     sandboxDirectory = "${rootProject.rootDir}/idea-sandbox"
     updateSinceUntilBuild = false
     downloadSources = true
 }
 patchPluginXml {
     changeNotes """
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>"""
+      <ul>
+          <li>mapper and xml can jump back and forth</li>
+          <li>mybatis.xml,mapper.xml prompt</li>
+          <li>the tag of 'if' in mybatis.xml, #{}, ${} parameter intelligent prompt in XML</li>
+          <li>Test method to quickly create</li>
+      </ul>"""
 }
 test {
     useJUnitPlatform()
